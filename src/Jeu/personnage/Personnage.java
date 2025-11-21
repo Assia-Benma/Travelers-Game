@@ -1,9 +1,7 @@
 package Jeu.personnage;
 import Jeu.ihm.IPersonnage;
 import Jeu.arme.Arme;
-import Jeu.ennemie.Ennemie;
-
-import static java.lang.Math.round;
+import Jeu.ihm.IEnnemie;
 
 public class Personnage implements IPersonnage {
     protected String nom;
@@ -22,23 +20,23 @@ public class Personnage implements IPersonnage {
         this.mort = false;
     }
 
-    public static Personnage creerPersonnage(String nom){
-        nom = nom.toLowerCase();
-        if("sherma".equals(nom)){
-            return new Sherma();
-        }
-        else if("grolax".equals(nom)){
-            return new Grolax();
-        }
-        else if("evelyn".equals(nom)){
-            return new Evelyn();
-        }
-        else if("fraudbouche".equals(nom)){
-            return new FraudBoucheEnTrois();
-        }
-        else
-            return null;
-    }
+//    public static Personnage creerPersonnage(String nom){
+//        nom = nom.toLowerCase();
+//        if("sherma".equals(nom)){
+//            return new Sherma();
+//        }
+//        else if("grolax".equals(nom)){
+//            return new Grolax();
+//        }
+//        else if("evelyn".equals(nom)){
+//            return new Evelyn();
+//        }
+//        else if("fraudbouche".equals(nom)){
+//            return new FraudBoucheEnTrois();
+//        }
+//        else
+//            return null;
+//    }
 
 
     @Override
@@ -67,8 +65,10 @@ public class Personnage implements IPersonnage {
             mort = true;
         }
     }
-    public void attaquer(Ennemie e){
-        e.recevoirDegats((int)(puissance * arme.getDegats()));
+    public void attaquer(IEnnemie e) {
+        int degats = (int) (puissance * arme.getDegats());
+        System.out.println(nom + " inflige à " + e.getNom() + " " + degats + " de dégâts !");
+        e.recevoirDegats(degats);
     }
 
 }

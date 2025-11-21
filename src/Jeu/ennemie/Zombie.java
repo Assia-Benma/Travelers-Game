@@ -1,4 +1,7 @@
 package Jeu.ennemie;
 
-public class Zombie {
+public class Zombie extends Ennemie{
+    public Zombie() {
+        super(60, 8,"Zombie");
+    }
 }

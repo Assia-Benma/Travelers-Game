@@ -11,24 +11,16 @@ public class Arme implements IArme {
         this.estDistance = estDistance;
     }
 
-    public static Arme creerArme(String nom) {
-        nom = nom.toLowerCase();
-        nom = nom.replace(" ","");
-        if (nom.equals("arc")) {
-            return new Arc();
-        }
-        if (nom.equals("daguepourpre")) {
-            return new DaguePourpre();
-        }
-        if (nom.equals("lancerune")) {
-            return new LanceRune();
-        }
-        if (nom.equals("baguettemagique")) {
-            return new BaguetteMagique();
-        }
-        else
-            return null;
-    }
+//    public static Arme creerArme(String nom) {
+//        nom = nom.toLowerCase().replace(" ", "");
+//        return switch (nom) {
+//            case "arc" -> new Arc();
+//            case "daguepourpre" -> new DaguePourpre();
+//            case "lancerune" -> new LanceRune();
+//            case "baguettemagique" -> new BaguetteMagique();
+//            default -> null;
+//        };
+//    }
 
     @Override
     public int getDegats() {
